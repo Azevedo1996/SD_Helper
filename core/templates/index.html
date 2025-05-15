@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expert Helper</title>
+</head>
+<body>
+    <h1>Selecione uma Aplicação</h1>
+    <ul>
+        {% for aplicacao in aplicacoes %}
+        <li><a href="{% url 'flow_inicio' aplicacao=aplicacao %}">{{ aplicacao }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

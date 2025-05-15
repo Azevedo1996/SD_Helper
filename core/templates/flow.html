@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expert Helper - {{ aplicacao }}</title>
+</head>
+<body>
+    <h1>{{ aplicacao }}</h1>
+    <p>{{ texto }}</p>
+
+    {% if tipo == "pergunta" %}
+    <p>
+        <a href="{% url 'flow' aplicacao=aplicacao node_id=proximo_sim %}">Sim</a> |
+        <a href="{% url 'flow' aplicacao=aplicacao node_id=proximo_nao %}">Não</a>
+    </p>
+    {% elif tipo == "solucao" %}
+    <p>Solução encontrada!</p>
+    <p>
+        <a href="{% url 'flow_inicio' aplicacao=aplicacao %}">Reiniciar</a> |
+        <a href="{% url 'index' %}">Voltar para a lista de aplicações</a>
+    </p>
+    {% endif %}
+
+    {% if mensagem %}
+    <p style="color: red;">{{ mensagem }}</p>
+    {% endif %}
+</body>
+</html>
